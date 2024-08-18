@@ -2,11 +2,11 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default Register = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); // State for error handling
-  const [success, setSuccess] = useState(null); // State for success message
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -19,14 +19,12 @@ export default Register = () => {
       });
 
       if (response.status === 201) {
-        // Use 201 for creation
         setSuccess("Registration successful! Redirecting to login...");
         setTimeout(() => {
           router.push("/User/login");
-        }, 2000); // Redirect after 2 seconds to show success message
+        }, 2000);
       }
     } catch (error) {
-      // Handle error
       setError(error.response?.data?.error || "Registration failed");
       console.error("Registration error:", error);
     }
@@ -38,7 +36,6 @@ export default Register = () => {
         <h1 className="text-2xl font-semibold text-center mb-6">Register</h1>
         {error && <p className="text-red-500">{error}</p>} {/* Show error */}
         {success && <p className="text-green-500">{success}</p>}{" "}
-        {/* Show success */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
@@ -95,3 +92,5 @@ export default Register = () => {
     </div>
   );
 };
+
+export default Register;
