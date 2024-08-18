@@ -29,8 +29,6 @@ export default async function handler(req, res) {
       const user = new User({ email, password: hashedPassword });
       await user.save();
 
-      // Optionally, create a JWT token (e.g., for immediate login)
-
       res.status(201).json({ message: "User registered successfully!" });
       break;
 

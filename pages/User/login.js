@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function Login() {
+export default function login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -13,12 +13,10 @@ export default function Login() {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
       if (response.status === 200) {
-        // Login successful, save token to localStorage and redirect
         localStorage.setItem("token", response.data.token);
         router.push("/");
       }
     } catch (error) {
-      // Handle error
       setError(error.response?.data?.error || "Login failed");
       console.error("Login error:", error);
     }
