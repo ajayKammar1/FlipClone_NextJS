@@ -29,12 +29,7 @@ export default async function handler(req, res) {
       const user = new User({ email, password: hashedPassword });
       await user.save();
 
-      Optionally, create a JWT token (e.g., for immediate login)
-      const token = jwt.sign(
-        { id: user._id, email: user.email },
-        process.env.JWT_SECRET,
-        { expiresIn: "1h" }
-      );
+      // Optionally, create a JWT token (e.g., for immediate login)
 
       res.status(201).json({ message: "User registered successfully!" });
       break;
