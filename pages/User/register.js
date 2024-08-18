@@ -2,7 +2,11 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
+<<<<<<< HEAD
 const Register = () => {
+=======
+export default register = () => {
+>>>>>>> e5c896e77e27e5c778dd449fa17b496241b291fc
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
