@@ -4,12 +4,13 @@ import { wrapper } from "@/Redux/Store";
 import "@/styles/globals.css";
 
 function App({ Component, pageProps }) {
+  const { store, porps } = wrapper.useWrappedStore(pageProps);
   return (
-    <>
+    <Provider store={store}>
       <Hedder />
-      <Component {...pageProps} />
+      <Component {...porps} />
       <Footer />
-    </>
+    </Provider>
   );
 }
 

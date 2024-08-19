@@ -13,4 +13,4 @@ const Store = () =>
 
 // export default Store;
 
-export const wrapper = createWrapper(Store);
+export const wrapper = createWrapper(Store, { debug: true });
