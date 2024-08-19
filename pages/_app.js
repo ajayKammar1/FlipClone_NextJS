@@ -2,6 +2,7 @@ import Footer from "@/Components/Footer";
 import Hedder from "@/Components/Hedder";
 import { wrapper } from "@/Redux/Store";
 import "@/styles/globals.css";
+import { Provider } from "react-redux";
 
 function App({ Component, pageProps }) {
   const { store, porps } = wrapper.useWrappedStore(pageProps);
