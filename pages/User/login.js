@@ -11,9 +11,12 @@ export default function login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/auth/login", { email, password });
+      const response = await axios.post("/api/auth/loginData", {
+        email,
+        password,
+      });
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.user);
+        localStorage.setItem("token", JSON.stringify(response.data.user));
         router.push("/");
       }
     } catch (error) {
