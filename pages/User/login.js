@@ -13,7 +13,7 @@ export default function login() {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("token", response.data.user);
         router.push("/");
       }
     } catch (error) {
